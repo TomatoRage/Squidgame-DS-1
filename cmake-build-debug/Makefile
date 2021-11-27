@@ -153,6 +153,78 @@ BinarySearchTree.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SquidGameDS1.dir/build.make CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.s
 .PHONY : BinarySearchTree.cpp.s
 
+Group.o: Group.cpp.o
+.PHONY : Group.o
+
+# target to build an object file
+Group.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SquidGameDS1.dir/build.make CMakeFiles/SquidGameDS1.dir/Group.cpp.o
+.PHONY : Group.cpp.o
+
+Group.i: Group.cpp.i
+.PHONY : Group.i
+
+# target to preprocess a source file
+Group.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SquidGameDS1.dir/build.make CMakeFiles/SquidGameDS1.dir/Group.cpp.i
+.PHONY : Group.cpp.i
+
+Group.s: Group.cpp.s
+.PHONY : Group.s
+
+# target to generate assembly for a file
+Group.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SquidGameDS1.dir/build.make CMakeFiles/SquidGameDS1.dir/Group.cpp.s
+.PHONY : Group.cpp.s
+
+Player.o: Player.cpp.o
+.PHONY : Player.o
+
+# target to build an object file
+Player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SquidGameDS1.dir/build.make CMakeFiles/SquidGameDS1.dir/Player.cpp.o
+.PHONY : Player.cpp.o
+
+Player.i: Player.cpp.i
+.PHONY : Player.i
+
+# target to preprocess a source file
+Player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SquidGameDS1.dir/build.make CMakeFiles/SquidGameDS1.dir/Player.cpp.i
+.PHONY : Player.cpp.i
+
+Player.s: Player.cpp.s
+.PHONY : Player.s
+
+# target to generate assembly for a file
+Player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SquidGameDS1.dir/build.make CMakeFiles/SquidGameDS1.dir/Player.cpp.s
+.PHONY : Player.cpp.s
+
+SquidGame.o: SquidGame.cpp.o
+.PHONY : SquidGame.o
+
+# target to build an object file
+SquidGame.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SquidGameDS1.dir/build.make CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.o
+.PHONY : SquidGame.cpp.o
+
+SquidGame.i: SquidGame.cpp.i
+.PHONY : SquidGame.i
+
+# target to preprocess a source file
+SquidGame.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SquidGameDS1.dir/build.make CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.i
+.PHONY : SquidGame.cpp.i
+
+SquidGame.s: SquidGame.cpp.s
+.PHONY : SquidGame.s
+
+# target to generate assembly for a file
+SquidGame.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SquidGameDS1.dir/build.make CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.s
+.PHONY : SquidGame.cpp.s
+
 library1.o: library1.cpp.o
 .PHONY : library1.o
 
@@ -213,6 +285,15 @@ help:
 	@echo "... BinarySearchTree.o"
 	@echo "... BinarySearchTree.i"
 	@echo "... BinarySearchTree.s"
+	@echo "... Group.o"
+	@echo "... Group.i"
+	@echo "... Group.s"
+	@echo "... Player.o"
+	@echo "... Player.i"
+	@echo "... Player.s"
+	@echo "... SquidGame.o"
+	@echo "... SquidGame.i"
+	@echo "... SquidGame.s"
 	@echo "... library1.o"
 	@echo "... library1.i"
 	@echo "... library1.s"

@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.o"
+  "CMakeFiles/SquidGameDS1.dir/Group.cpp.o"
+  "CMakeFiles/SquidGameDS1.dir/Player.cpp.o"
+  "CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.o"
   "CMakeFiles/SquidGameDS1.dir/library1.cpp.o"
   "CMakeFiles/SquidGameDS1.dir/main1.cpp.o"
   "SquidGameDS1"

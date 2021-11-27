@@ -105,11 +105,53 @@ CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/BinarySearchTree.cpp -o CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.s
 
+CMakeFiles/SquidGameDS1.dir/Group.cpp.o: CMakeFiles/SquidGameDS1.dir/flags.make
+CMakeFiles/SquidGameDS1.dir/Group.cpp.o: ../Group.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SquidGameDS1.dir/Group.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SquidGameDS1.dir/Group.cpp.o -c /Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Group.cpp
+
+CMakeFiles/SquidGameDS1.dir/Group.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SquidGameDS1.dir/Group.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Group.cpp > CMakeFiles/SquidGameDS1.dir/Group.cpp.i
+
+CMakeFiles/SquidGameDS1.dir/Group.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SquidGameDS1.dir/Group.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Group.cpp -o CMakeFiles/SquidGameDS1.dir/Group.cpp.s
+
+CMakeFiles/SquidGameDS1.dir/Player.cpp.o: CMakeFiles/SquidGameDS1.dir/flags.make
+CMakeFiles/SquidGameDS1.dir/Player.cpp.o: ../Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SquidGameDS1.dir/Player.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SquidGameDS1.dir/Player.cpp.o -c /Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Player.cpp
+
+CMakeFiles/SquidGameDS1.dir/Player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SquidGameDS1.dir/Player.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Player.cpp > CMakeFiles/SquidGameDS1.dir/Player.cpp.i
+
+CMakeFiles/SquidGameDS1.dir/Player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SquidGameDS1.dir/Player.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Player.cpp -o CMakeFiles/SquidGameDS1.dir/Player.cpp.s
+
+CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.o: CMakeFiles/SquidGameDS1.dir/flags.make
+CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.o: ../SquidGame.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.o -c /Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/SquidGame.cpp
+
+CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/SquidGame.cpp > CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.i
+
+CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/SquidGame.cpp -o CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.s
+
 # Object files for target SquidGameDS1
 SquidGameDS1_OBJECTS = \
 "CMakeFiles/SquidGameDS1.dir/main1.cpp.o" \
 "CMakeFiles/SquidGameDS1.dir/library1.cpp.o" \
-"CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.o"
+"CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.o" \
+"CMakeFiles/SquidGameDS1.dir/Group.cpp.o" \
+"CMakeFiles/SquidGameDS1.dir/Player.cpp.o" \
+"CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.o"
 
 # External object files for target SquidGameDS1
 SquidGameDS1_EXTERNAL_OBJECTS =
@@ -117,9 +159,12 @@ SquidGameDS1_EXTERNAL_OBJECTS =
 SquidGameDS1: CMakeFiles/SquidGameDS1.dir/main1.cpp.o
 SquidGameDS1: CMakeFiles/SquidGameDS1.dir/library1.cpp.o
 SquidGameDS1: CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.o
+SquidGameDS1: CMakeFiles/SquidGameDS1.dir/Group.cpp.o
+SquidGameDS1: CMakeFiles/SquidGameDS1.dir/Player.cpp.o
+SquidGameDS1: CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.o
 SquidGameDS1: CMakeFiles/SquidGameDS1.dir/build.make
 SquidGameDS1: CMakeFiles/SquidGameDS1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable SquidGameDS1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SquidGameDS1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SquidGameDS1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

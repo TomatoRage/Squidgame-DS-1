@@ -1,6 +1,8 @@
 #ifndef UNTITLED_BINARYSEARCHTREE_H
 #define UNTITLED_BINARYSEARCHTREE_H
 
+//TODO:Update 2nd field sort
+
 template<class Key,class Info>
 class BST{
 

@@ -84,6 +84,24 @@
 		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/BinarySearchTree.h">
 			<Option target="SquidGameDS1"/>
 		</Unit>
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Group.cpp">
+			<Option target="SquidGameDS1"/>
+		</Unit>
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Group.h">
+			<Option target="SquidGameDS1"/>
+		</Unit>
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Player.cpp">
+			<Option target="SquidGameDS1"/>
+		</Unit>
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Player.h">
+			<Option target="SquidGameDS1"/>
+		</Unit>
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/SquidGame.cpp">
+			<Option target="SquidGameDS1"/>
+		</Unit>
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/SquidGame.h">
+			<Option target="SquidGameDS1"/>
+		</Unit>
 		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/library1.cpp">
 			<Option target="SquidGameDS1"/>
 		</Unit>
