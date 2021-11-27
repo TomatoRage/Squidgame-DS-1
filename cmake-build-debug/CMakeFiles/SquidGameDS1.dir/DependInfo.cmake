@@ -8,10 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Ahmad/CLionProjects/SquidGameDS1/library1.cpp" "C:/Users/Ahmad/CLionProjects/SquidGameDS1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/library1.cpp.obj"
-  "C:/Users/Ahmad/CLionProjects/SquidGameDS1/main1.cpp" "C:/Users/Ahmad/CLionProjects/SquidGameDS1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/main1.cpp.obj"
+  "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/BinarySearchTree.cpp" "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.o"
+  "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/library1.cpp" "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/library1.cpp.o"
+  "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/main1.cpp" "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/main1.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

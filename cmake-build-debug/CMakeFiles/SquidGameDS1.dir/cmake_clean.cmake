@@ -1,10 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SquidGameDS1.dir/library1.cpp.obj"
-  "CMakeFiles/SquidGameDS1.dir/main1.cpp.obj"
-  "SquidGameDS1.exe"
-  "SquidGameDS1.exe.manifest"
+  "CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.o"
+  "CMakeFiles/SquidGameDS1.dir/library1.cpp.o"
+  "CMakeFiles/SquidGameDS1.dir/main1.cpp.o"
+  "SquidGameDS1"
   "SquidGameDS1.pdb"
-  "libSquidGameDS1.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
