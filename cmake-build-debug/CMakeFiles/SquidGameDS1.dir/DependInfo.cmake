@@ -8,14 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/BinarySearchTree.cpp" "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.o"
-  "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Group.cpp" "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/Group.cpp.o"
-  "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Player.cpp" "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/Player.cpp.o"
-  "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/SquidGame.cpp" "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.o"
-  "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/library1.cpp" "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/library1.cpp.o"
-  "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/main1.cpp" "/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/main1.cpp.o"
+  "C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/BinarySearchTree.cpp" "C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.obj"
+  "C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/Group.cpp" "C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/Group.cpp.obj"
+  "C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/Player.cpp" "C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/Player.cpp.obj"
+  "C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/SquidGame.cpp" "C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.obj"
+  "C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/library1.cpp" "C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/library1.cpp.obj"
+  "C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/main1.cpp" "C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/CMakeFiles/SquidGameDS1.dir/main1.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

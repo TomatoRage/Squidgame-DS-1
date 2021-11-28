@@ -14,14 +14,20 @@ class Player {
 
 public:
 
-    Player(int ID,int Level);
-    Player(int ID);
+    Player(int Id,int Lvl) : Id(ID) , lvl(Level)  {};
+    Player(int Id) ;
     ~Player();
     void UpdateAllGroup(Group* Group);
     void UpdateUsedGroup(Group* Group);
-    void UpdateLevel(int Level);
-    int GetLevel();
-    int GetID();
+    void UpdateLevel(int Level_inc) {
+        Level += Level_inc;
+    }
+    int GetLevel() {
+        return Level;
+    }
+    int GetID() {
+        return ID;
+    }
     //TODO:Implement Methods
 };
 
