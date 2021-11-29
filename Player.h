@@ -15,8 +15,9 @@ class Player {
 public:
 
     Player(int PlayerId,int Lvl) : ID(PlayerId) , Level(Lvl) , AllGroups(NULL) , UsedGroups(NULL) {};
-    Player(int Id) ;
-    ~Player();
+    Player() = default;
+    Player(int Id) : ID(Id) , Level(0), AllGroups(NULL) , UsedGroups(NULL) {} ;
+    ~Player() = default;
     void UpdateAllGroup(Group* Group){
         AllGroups = Group;
     }
@@ -35,10 +36,39 @@ public:
         return ID;
     }
     //TODO:Implement Methods
-
-    friend bool operator>(const Player& c1, const Player& c2);
-    friend bool operator<(const Player& c1, const Player& c2);
-    friend bool operator==(const Player& c1, const Player& c2);
+    Player ArrMerge(Player p1[],Player p2[],int n,int m){
+        int newSize = n + m;
+        Player* newPlayers = (Player*) malloc(sizeof (Player) * newSize);
+        int i, j, k;
+        i = 0;
+        j = 0;
+        k = 0;
+        while (i < n && j < m) {
+            if (p1[i] < p2[j]) {
+                newPlayers[k] = p1[i];
+                ++k;
+                ++i;
+            } else {
+                newPlayers[k] = p2[j];
+                ++k;
+                ++j;
+            }
+        }
+        while (i < n) {
+            newPlayers[k] = p1[i];
+            ++k;
+            ++i;
+        }
+        while (j < m) {
+            newPlayers[k] = p2[j];
+            ++k;
+            ++j;
+        }
+        return *newPlayers;
+    }
+    friend bool operator>(const Player& p1, const Player& p2);
+    friend bool operator<(const Player& p1, const Player& p2);
+    friend bool operator==(const Player& p1, const Player& p2);
 };
 
 bool operator>(const Player& p1, const Player& p2){
