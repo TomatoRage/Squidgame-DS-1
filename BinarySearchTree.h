@@ -45,6 +45,7 @@ public:
     Info& Find(Key key);
     void clear();
     Info& GetMax(Key* key);
+    Key& FindKey(Key key);
 
     class FailureException{};
     class KeyNotFound: public FailureException{};

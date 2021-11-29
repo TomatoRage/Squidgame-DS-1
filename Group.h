@@ -18,7 +18,7 @@ public:
     int GetMaxID;
     void MergeGroup(Group* ToMerge);
     void GincreasePlayerLevel(Player player,int level);
-    int GetHighestLevelID();
+    int GetHighestLevelID() const;
     int GetAllByLevel(int** players);
 
     class FailureException{};
