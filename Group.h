@@ -15,7 +15,7 @@ public:
     ~Group();
     void AddPlayerToGroup(Player& player);
     void RemovePlayer(Player player);
-    int GetMaxID;
+    int GetSize();
     void MergeGroup(Group* ToMerge);
     void GincreasePlayerLevel(Player player,int level);
     int GetHighestLevelID() const;

@@ -78,3 +78,7 @@ int Group::GetAllByLevel(int **players) {
     return GroupPlayers.GetSize();
 
 }
+
+int Group::GetSize() {
+    return GroupPlayers.GetSize();
+}

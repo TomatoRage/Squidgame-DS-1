@@ -36,6 +36,14 @@ public:
         return ID;
     }
 
+    Group* GetAllGroup(){
+        return AllGroups;
+    }
+
+    Group* GetUsedGroup(){
+        return UsedGroups;
+    }
+
     friend bool operator>(const Player& p1, const Player& p2);
     friend bool operator<(const Player& p1, const Player& p2);
     friend bool operator==(const Player& p1, const Player& p2);
