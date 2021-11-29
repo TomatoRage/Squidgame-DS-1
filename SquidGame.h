@@ -24,7 +24,6 @@ public:
     int** GetGroupsHighestLevel(int NumOfGroups);
 
     class FailureException{};
-    //TODO:Implement Methods
 };
 
 
