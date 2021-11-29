@@ -1,4 +1,5 @@
 #include "Group.h"
+#include <iostream>
 
 Group::Group():MaxLevelId(-1),MaxLevel(-1) {}
 
@@ -36,11 +37,37 @@ void Group::MergeGroup(Group *ToMerge) {
         ToMerge->GroupPlayers.NextIteration(&p);
         Players2[i] = p;
     }
-    
+
 }
 
-void Group::GincreasePlayerLevel(Player player, int level) {}
+void Group::GincreasePlayerLevel(Player player, int level) {
+    Player& Curr = GroupPlayers.FindKey(player);
+    Curr.UpdateLevel(level);
+}
 
-int Group::GetHighestLevelID() {}
+int Group::GetHighestLevelID() const {
+    return MaxLevelId;
+}
 
-int Group::GetAllByLevel(int **players) {}
+int Group::GetAllByLevel(int **players) {
+
+    if(GroupPlayers.GetSize() == 0) {
+        players = nullptr;
+        return 0;
+    }
+
+    int* p = (int*) malloc(sizeof(int)*GroupPlayers.GetSize());
+    Player* player;
+
+    if(p == nullptr)
+        throw std::bad_alloc();
+
+    GroupPlayers.ResetIterator();
+    for(int i = 0; i < GroupPlayers.GetSize(); i++) {
+        GroupPlayers.NextIteration(&player);
+        p[i] = player->GetID();
+    }
+    *players = p;
+    return GroupPlayers.GetSize();
+
+}
