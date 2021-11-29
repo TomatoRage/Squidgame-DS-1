@@ -5,9 +5,9 @@ SquidGame::SquidGame() {}
 
 SquidGame::~SquidGame() {}
 
-void SquidGame::AddPlayerToGroup(int GroupID, int playerID) {}
+void SquidGame::AddPlayerToGroup(int GroupID, int playerID,int Level) {}
 
-void SquidGame::RemovePlayerFromGroup(int GroupID, int PlayerID) {}
+void SquidGame::RemovePlayerFromGroup(int PlayerID) {}
 
 void SquidGame::AddEmptyGroup(int GroupID) {}
 
@@ -90,4 +90,32 @@ int **SquidGame::GetGroupsHighestLevel(int NumOfGroups) {
     }
 
     return &players;
+}
+
+int SquidGame::Clear() {
+    int key;
+    int* key_ptr = &key;
+    PlayersID.ResetIterator();
+    for (int i = 0; i < PlayersID.GetSize(); i++) {
+        Player* P = PlayersID.NextIteration(&key_ptr);
+        delete P;
+    }
+    Players.ResetIterator();
+    for (int i = 0; i < Players.GetSize(); i++) {
+        Player* P;
+        Players.NextIteration(&P);
+        delete P;
+    }
+    AllGroups.ResetIterator();
+    for (int i = 0; i < AllGroups.GetSize(); i++) {
+        Group* G;
+        G = AllGroups.NextIteration(&key_ptr);
+        delete G;
+    }
+    UsedGroups.ResetIterator();
+    for (int i = 0; i < UsedGroups.GetSize(); i++) {
+        Group* G;
+        G = UsedGroups.NextIteration(&key_ptr);
+        delete G;
+    }
 }

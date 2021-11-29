@@ -20,6 +20,10 @@ CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.o: \
  ../SquidGame.cpp \
  ../SquidGame.h
 CMakeFiles/SquidGameDS1.dir/library1.cpp.o: \
+ ../BinarySearchTree.h \
+ ../Group.h \
+ ../Player.h \
+ ../SquidGame.h \
  ../library1.cpp \
  ../library1.h
 CMakeFiles/SquidGameDS1.dir/main1.cpp.o: \
