@@ -7,16 +7,17 @@
 class Group {
 
     int MaxLevelId;
-    BST<int,Player*> GroupPlayers;
+    int MaxLevel;
+    BST<Player,int> GroupPlayers;
 
 public:
     Group();
     ~Group();
-    void AddPlayerToGroup(int playerID);
-    void RemovePlayer(int playerID);
+    void AddPlayerToGroup(Player& player);
+    void RemovePlayer(Player player);
     int GetMaxID;
     void MergeGroup(Group* ToMerge);
-    void GincreasePlayerLevel(int playerID,int level);
+    void GincreasePlayerLevel(Player player,int level);
     int GetHighestLevelID();
     int GetAllByLevel(int** players);
 

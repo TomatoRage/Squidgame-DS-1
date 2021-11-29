@@ -8,112 +8,110 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug"/>
+				<Option working_dir="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="SquidGameDS1">
-				<Option output="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/SquidGameDS1.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="D:/Program Files/JetBrains/CLion 2021.1.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
-					<Add directory="D:/Program Files/JetBrains/CLion 2021.1.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
-					<Add directory="D:/Program Files/JetBrains/CLion 2021.1.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
-					<Add directory="D:/Program Files/JetBrains/CLion 2021.1.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
-					<Add directory="D:/Program Files/JetBrains/CLion 2021.1.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="D:/Program Files/JetBrains/CLion 2021.1.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 SquidGameDS1"/>
-					<CompileFile command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="SquidGameDS1/fast">
-				<Option output="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/SquidGameDS1.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="D:/Program Files/JetBrains/CLion 2021.1.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
-					<Add directory="D:/Program Files/JetBrains/CLion 2021.1.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
-					<Add directory="D:/Program Files/JetBrains/CLion 2021.1.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
-					<Add directory="D:/Program Files/JetBrains/CLion 2021.1.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
-					<Add directory="D:/Program Files/JetBrains/CLion 2021.1.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="D:/Program Files/JetBrains/CLion 2021.1.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 SquidGameDS1/fast"/>
-					<CompileFile command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug"/>
+				<Option working_dir="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/PROGRA~1/JETBRA~1/CLION2~1.1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SquidGameDS1">
+				<Option output="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/SquidGameDS1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 SquidGameDS1"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SquidGameDS1/fast">
+				<Option output="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/SquidGameDS1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 SquidGameDS1/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/BinarySearchTree.cpp">
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/BinarySearchTree.cpp">
 			<Option target="SquidGameDS1"/>
 		</Unit>
-		<Unit filename="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/BinarySearchTree.h">
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/BinarySearchTree.h">
 			<Option target="SquidGameDS1"/>
 		</Unit>
-		<Unit filename="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/Group.cpp">
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Group.cpp">
 			<Option target="SquidGameDS1"/>
 		</Unit>
-		<Unit filename="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/Group.h">
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Group.h">
 			<Option target="SquidGameDS1"/>
 		</Unit>
-		<Unit filename="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/Player.cpp">
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Player.cpp">
 			<Option target="SquidGameDS1"/>
 		</Unit>
-		<Unit filename="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/Player.h">
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/Player.h">
 			<Option target="SquidGameDS1"/>
 		</Unit>
-		<Unit filename="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/SquidGame.cpp">
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/SquidGame.cpp">
 			<Option target="SquidGameDS1"/>
 		</Unit>
-		<Unit filename="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/SquidGame.h">
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/SquidGame.h">
 			<Option target="SquidGameDS1"/>
 		</Unit>
-		<Unit filename="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/library1.cpp">
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/library1.cpp">
 			<Option target="SquidGameDS1"/>
 		</Unit>
-		<Unit filename="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/library1.h">
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/library1.h">
 			<Option target="SquidGameDS1"/>
 		</Unit>
-		<Unit filename="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/main1.cpp">
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/main1.cpp">
 			<Option target="SquidGameDS1"/>
 		</Unit>
-		<Unit filename="C:/Users/mhmdb/CLionProjects/Squidgame-DS-1/CMakeLists.txt">
+		<Unit filename="/Users/ahmadghanayem/CLionProjects/Squidgame-DS-1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

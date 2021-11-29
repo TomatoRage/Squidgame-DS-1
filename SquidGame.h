@@ -6,7 +6,8 @@
 
 class SquidGame {
 
-    BST<int,Player*> Players;
+    BST<int,Player*> PlayersID;
+    BST<Player,int> Players;
     BST<int,Group*> AllGroups;
     BST<int,Group*> UsedGroups;
     int TotalPlayers;

@@ -44,6 +44,7 @@ public:
     int GetHeight();
     Info& Find(Key key);
     void clear();
+    Info& GetMax(Key* key);
 
     class FailureException{};
     class KeyNotFound: public FailureException{};
