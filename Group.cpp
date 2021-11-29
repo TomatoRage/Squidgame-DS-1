@@ -38,6 +38,13 @@ void Group::MergeGroup(Group *ToMerge) {
         Players2[i] = p;
     }
 
+   p = ArrMerge(*players,*Players2,GroupPlayers.GetSize(),ToMerge->GroupPlayers.GetSize());
+    int GSize = GroupPlayers.GetSize() + ToMerge->GroupPlayers.GetSize();
+    GroupPlayers.clear();
+
+    for(int i = 0;i < GSize;i++){
+        GroupPlayers.insert(p[i],GSize);
+    }
 }
 
 void Group::GincreasePlayerLevel(Player player, int level) {
