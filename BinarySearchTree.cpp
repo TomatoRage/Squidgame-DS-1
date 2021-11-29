@@ -269,4 +269,25 @@ Info& BST<Key, Info>::NextIteration(Key **key) {
     return Temp;
 }
 
+template<class Key,class Info>
+Info &BST<Key, Info>::GetMax(Key *key) {
+    node* ptr = root;
+    while(ptr != nullptr){
+        ptr = ptr->right_son;
+    }
+}
+
+template<class Key,class Info>
+Key &BST<Key, Info>::FindKey(Key key) {
+    node* ptr = root;
+    while(ptr != nullptr){
+        if(key > ptr->key)
+            ptr = ptr->right_son;
+        else if(key < ptr->key)
+            ptr = ptr->left_son;
+        else if(key == ptr->key)
+            return ptr->key;
+    }
+}
+
 #endif //UNTITLED_BINARYSEARCHTREEIMP_H
