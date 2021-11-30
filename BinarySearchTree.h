@@ -3,6 +3,8 @@
 
 //TODO:Update 2nd field sort
 
+#include "Player.h"
+
 template<class Key,class Info>
 class BST{
 
@@ -36,7 +38,7 @@ public:
 
     BST();
     ~BST();
-    node* insert(Key key,Info& info);
+    node* insert(Key key, Info info);
     void remove(Key key);
     int GetSize();
     void ResetIterator();

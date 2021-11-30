@@ -12,7 +12,7 @@ BST<Key,Info>::~BST<Key, Info>() {
 }
 
 template<class Key,class Info>
-typename BST<Key,Info>::node* BST<Key, Info>::insert(Key key, Info& info){
+typename BST<Key,Info>::node* BST<Key, Info>::insert(Key key, Info info){
     return InsertNode(key,info,root);
 }
 

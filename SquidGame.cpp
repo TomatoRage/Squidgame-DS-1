@@ -1,121 +1,49 @@
 #include "SquidGame.h"
-#include <iostream>
 
 SquidGame::SquidGame() {}
 
 SquidGame::~SquidGame() {}
 
-void SquidGame::AddPlayerToGroup(int GroupID, int playerID,int Level) {}
-
-void SquidGame::RemovePlayerFromGroup(int PlayerID) {}
-
-void SquidGame::AddEmptyGroup(int GroupID) {}
-
-void SquidGame::ReplaceGroup(int MainGroup, int SecondaryGroup) {
-    Group* GM = AllGroups.Find(MainGroup);
-    Group* GS = AllGroups.Find(SecondaryGroup);
-    Group* Temp = GS;
-    GM->MergeGroup(GS);
-    AllGroups.remove(SecondaryGroup);
-
-    GM = UsedGroups.Find(MainGroup);
-    GS = UsedGroups.Find(SecondaryGroup);
-    GM->MergeGroup(GS);
-    UsedGroups.remove(SecondaryGroup);
-
-    delete GS;
-    delete Temp;
+void SquidGame::AddPlayerToGroup(int GroupID,int playerID,int Level) {
+    if(PlayersID.Find(playerID) || !AllGroups.Find(GroupID)) throw FailureException();
+    Group* g1 = (AllGroups.Find(GroupID));
+    Player player1 = Player(playerID, Level, g1);
+    PlayersID.insert(playerID,&player1);
+    Players.insert(player1,0);
+    if (AllGroups.Find(GroupID)->GetSize() == 0){
+        UsedGroups.insert(GroupID,g1);
+    }
+    UsedGroups.Find(GroupID)->AddPlayerToGroup(player1);
+    AllGroups.Find(GroupID)->AddPlayerToGroup(player1);
+    TotalPlayers++;
 }
 
-void SquidGame::IncreasePlayerLevel(int PlayerID, int Level) {
-    Player* p = PlayersID.Find(PlayerID);
-    p->UpdateLevel(Level);
-    p->GetAllGroup()->GincreasePlayerLevel(*p,Level);
-    p->GetUsedGroup()->GincreasePlayerLevel(*p,Level);
+void SquidGame::RemovePlayerFromGroup(int GroupID, int playerID) {
+    if(!PlayersID.Find(playerID))  throw FailureException();
+    Player* p1 = PlayersID.Find(playerID);
+    Group* g1 = p1->GetAllGroup();
+    g1->RemovePlayer(*p1);
+    UsedGroups.Find(GroupID)->RemovePlayer(*p1);
+    if(UsedGroups.Find(GroupID)->GetSize() == 0){
+        UsedGroups.remove(GroupID);
+    }
+    Players.remove(*p1);
+    PlayersID.remove(playerID);
+    TotalPlayers--;
 }
 
-int SquidGame::GetHighestLevel(int GroupID) {
-
-    if(GroupID == -1) {
-        Player* p;
-        Players.GetMax(p);
-        return p->GetID();
-    }else{
-        Group* G;
-        G = AllGroups.Find(GroupID);
-        if(G->GetSize() == 0)
-            return -1;
-        return G->GetHighestLevelID();
-    }
-
+void SquidGame::AddEmptyGroup(int GroupID) {
+    if(AllGroups.Find(GroupID)) throw FailureException();
+    Group g1 = Group();
+    AllGroups.insert(GroupID,&g1);
 }
 
-int SquidGame::GetAllPlayersByLevel(int GroupID, int **Players) {
-    if(GroupID == -1){
-        int* players = (int*) malloc(sizeof(int)*TotalPlayers);
-        if(players == nullptr)
-            throw std::bad_alloc();
-        Player* p;
-        this->Players.ResetIterator();
-        for (int i = 0; i < TotalPlayers; i++) {
-            this->Players.NextIteration(&p);
-            players[i] = p->GetLevel();
-        }
-        return TotalPlayers;
-    }else {
-        Group* G = AllGroups.Find(GroupID);
-        return G->GetAllByLevel(Players);
-    }
+void SquidGame::ReplaceGroup(int MainGroup, int SecondaryGroup) {}
 
-}
+void SquidGame::IncreasePlayerLevel(int PlayerID, int Level) {}
 
-int **SquidGame::GetGroupsHighestLevel(int NumOfGroups) {
+int SquidGame::GetHighestLevel(int GroupID) {}
 
-    int* Temp;
-    int** ID = &Temp;
-    Group* G;
+int SquidGame::GetAllPlayersByLevel(int GroupID, int **Players) {}
 
-    if(UsedGroups.GetSize() < NumOfGroups)
-        throw FailureException();
-
-    int *players = (int*) malloc(sizeof(int)*NumOfGroups);
-
-    if(players == nullptr)
-        throw std::bad_alloc();
-
-    UsedGroups.ResetIterator();
-    for (int i = 0; i < NumOfGroups; ++i) {
-        G = UsedGroups.NextIteration(ID);
-        players[i] = G->GetHighestLevelID();
-    }
-
-    return &players;
-}
-
-int SquidGame::Clear() {
-    int key;
-    int* key_ptr = &key;
-    PlayersID.ResetIterator();
-    for (int i = 0; i < PlayersID.GetSize(); i++) {
-        Player* P = PlayersID.NextIteration(&key_ptr);
-        delete P;
-    }
-    Players.ResetIterator();
-    for (int i = 0; i < Players.GetSize(); i++) {
-        Player* P;
-        Players.NextIteration(&P);
-        delete P;
-    }
-    AllGroups.ResetIterator();
-    for (int i = 0; i < AllGroups.GetSize(); i++) {
-        Group* G;
-        G = AllGroups.NextIteration(&key_ptr);
-        delete G;
-    }
-    UsedGroups.ResetIterator();
-    for (int i = 0; i < UsedGroups.GetSize(); i++) {
-        Group* G;
-        G = UsedGroups.NextIteration(&key_ptr);
-        delete G;
-    }
-}
+int **SquidGame::GetGroupsHighestLevel(int NumOfGroups) {}
