@@ -54,19 +54,23 @@ void Group::RemovePlayer(Player player) {
 }
 
 void Group::MergeGroup(Group *ToMerge) {
-
-    Player* p;
+    Player p1,p2;
+    Player* p = &p1,*P = &p2;
     Player* players[GroupPlayers.GetSize()];
     Player* Players2[ToMerge->GroupPlayers.GetSize()];
     GroupPlayers.ResetIterator();
     for(int i = 0; i < GroupPlayers.GetSize();i++){
-        GroupPlayers.NextIteration(&p);
-        players[i] = p;
+        this->GroupPlayers.NextIteration(&p);
+        Player* newplayer = new Player();
+        memcpy(newplayer,p,sizeof (*p));
+        players[i] = newplayer;
     }
     ToMerge->GroupPlayers.ResetIterator();
     for (int i = 0; i < ToMerge->GroupPlayers.GetSize(); i++) {
-        ToMerge->GroupPlayers.NextIteration(&p);
-        Players2[i] = p;
+        ToMerge->GroupPlayers.NextIteration(&P);
+        Player* newplayer2 = new Player();
+        memcpy(newplayer2,P,sizeof (*P));
+        Players2[i] = newplayer2;
     }
 
    p = ArrMerge(*players,*Players2,GroupPlayers.GetSize(),ToMerge->GroupPlayers.GetSize());

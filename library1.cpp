@@ -109,7 +109,7 @@ StatusType GetGroupsHighestLevel(void *DS, int numOfGroups, int **Players){
     if(!DS || numOfGroups < 1 || !Players)
         return INVALID_INPUT;
     try{
-        Players = ((SquidGame*)DS)->GetGroupsHighestLevel(numOfGroups);
+        ((SquidGame*)DS)->GetGroupsHighestLevel(numOfGroups,Players);
     }catch(std::bad_alloc& e){
         return ALLOCATION_ERROR;
     }catch(...){

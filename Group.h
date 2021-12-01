@@ -3,6 +3,7 @@
 
 #include "BinarySearchTree.h"
 #include "stdlib.h"
+#include "cstring"
 class Player;
 
 class Group {

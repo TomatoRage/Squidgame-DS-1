@@ -24,7 +24,7 @@ public:
     void IncreasePlayerLevel(int PlayerID,int Level);
     int GetHighestLevel(int GroupID);
     int GetAllPlayersByLevel(int GroupID,int** Players);
-    int** GetGroupsHighestLevel(int NumOfGroups);
+    void GetGroupsHighestLevel(int NumOfGroups,int** Players);
     void Clear();
 
     class FailureException{};
