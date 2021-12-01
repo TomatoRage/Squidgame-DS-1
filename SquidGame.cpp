@@ -1,9 +1,9 @@
 #include "SquidGame.h"
 #include <iostream>
+#include "Group.h"
+#include "Player.h"
 
 SquidGame::SquidGame():TotalPlayers(0) {}
-
-SquidGame::~SquidGame() {}
 
 void SquidGame::AddPlayerToGroup(int GroupID,int playerID,int Level) {
     if(PlayersID.Find(playerID) || !AllGroups.Find(GroupID)) throw FailureException();
@@ -122,7 +122,7 @@ int **SquidGame::GetGroupsHighestLevel(int NumOfGroups) {
     return &players;
 }
 
-int SquidGame::Clear() {
+void SquidGame::Clear() {
     int key;
     int* key_ptr = &key;
     PlayersID.ResetIterator();

@@ -13,7 +13,7 @@ class Group {
 
 public:
     Group(int ID);
-    ~Group();
+    ~Group() = default;
     void AddPlayerToGroup(Player& player);
     void RemovePlayer(Player player);
     int GetSize();
