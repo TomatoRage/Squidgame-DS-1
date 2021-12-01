@@ -3,7 +3,8 @@
 
 CMakeFiles/SquidGameDS1.dir/BinarySearchTree.cpp.o: \
  ../BinarySearchTree.cpp \
- ../BinarySearchTree.h
+ ../BinarySearchTree.h \
+ ../Player.h
 CMakeFiles/SquidGameDS1.dir/Group.cpp.o: \
  ../BinarySearchTree.h \
  ../Group.cpp \
@@ -18,7 +19,8 @@ CMakeFiles/SquidGameDS1.dir/SquidGame.cpp.o: \
  ../Group.h \
  ../Player.h \
  ../SquidGame.cpp \
- ../SquidGame.h
+ ../SquidGame.h \
+ ../library1.h
 CMakeFiles/SquidGameDS1.dir/library1.cpp.o: \
  ../BinarySearchTree.h \
  ../Group.h \

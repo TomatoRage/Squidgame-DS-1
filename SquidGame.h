@@ -16,7 +16,7 @@ public:
     SquidGame();
     ~SquidGame();
     void AddPlayerToGroup(int GroupID,int playerID,int Level);
-    void RemovePlayerFromGroup(int GroupID,int PlayerID);
+    void RemovePlayerFromGroup(int PlayerID);
     void AddEmptyGroup(int GroupID);
     void ReplaceGroup(int MainGroup,int SecondaryGroup);
     void IncreasePlayerLevel(int PlayerID,int Level);
