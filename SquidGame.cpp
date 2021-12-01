@@ -1,7 +1,5 @@
 #include "SquidGame.h"
-#include <iostream>
-#include "Group.h"
-#include "Player.h"
+
 
 SquidGame::SquidGame():TotalPlayers(0) {}
 

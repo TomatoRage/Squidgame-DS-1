@@ -1,9 +1,7 @@
 #ifndef UNTITLED_BINARYSEARCHTREE_H
 #define UNTITLED_BINARYSEARCHTREE_H
 
-//TODO:Update 2nd field sort
-
-#include "Player.h"
+using namespace std;
 
 template<class Key,class Info>
 class BST{
@@ -52,5 +50,6 @@ public:
     class FailureException{};
     class KeyNotFound: public FailureException{};
 };
+#include "BinarySearchTreeimp.h"
 
 #endif

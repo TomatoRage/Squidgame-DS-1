@@ -4,7 +4,8 @@
 #include "BinarySearchTree.h"
 #include "Group.h"
 #include "library1.h"
-#include "Player.h"
+#include <iostream>
+#include "cstring"
 
 class SquidGame {
 
