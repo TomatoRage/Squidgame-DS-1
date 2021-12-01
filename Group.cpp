@@ -1,7 +1,7 @@
 #include "Group.h"
 #include <iostream>
 
-Group::Group():MaxLevelId(-1),MaxLevel(-1) {}
+Group::Group(int ID):MaxLevelId(-1),MaxLevel(-1),GroupID(ID) {}
 
 void Group::AddPlayerToGroup(Player& player) {
     int zero = 0;
@@ -81,4 +81,8 @@ int Group::GetAllByLevel(int **players) {
 
 int Group::GetSize() {
     return GroupPlayers.GetSize();
+}
+
+int Group::GetGeroupID() const {
+    return GroupID;
 }

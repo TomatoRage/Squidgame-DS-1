@@ -12,9 +12,10 @@ void SquidGame::AddPlayerToGroup(int GroupID,int playerID,int Level) {
     PlayersID.insert(playerID,&player1);
     Players.insert(player1,0);
     if (AllGroups.Find(GroupID)->GetSize() == 0){
-        UsedGroups.insert(GroupID,g1);
+        Group Temp = Group(GroupID);
+        memcpy(&Temp,g1,sizeof(*g1));
+        UsedGroups.insert(GroupID,&Temp);
     }
-    UsedGroups.Find(GroupID)->AddPlayerToGroup(player1);
     AllGroups.Find(GroupID)->AddPlayerToGroup(player1);
     TotalPlayers++;
 }
@@ -24,9 +25,10 @@ void SquidGame::RemovePlayerFromGroup(int playerID) {
     Player* p1 = PlayersID.Find(playerID);
     Group* g1 = p1->GetAllGroup();
     g1->RemovePlayer(*p1);
-    UsedGroups.Find(GroupID)->RemovePlayer(*p1);
-    if(UsedGroups.Find(GroupID)->GetSize() == 0){
-        UsedGroups.remove(GroupID);
+    Group* AG = (PlayersID.Find(playerID)->GetAllGroup());
+    AG->RemovePlayer(*p1);
+    if(AG->GetSize() == 0){
+        UsedGroups.remove(AG->GetGeroupID());
     }
     Players.remove(*p1);
     PlayersID.remove(playerID);
@@ -35,8 +37,8 @@ void SquidGame::RemovePlayerFromGroup(int playerID) {
 
 void SquidGame::AddEmptyGroup(int GroupID) {
     if(AllGroups.Find(GroupID)) throw FailureException();
-    Group g1 = Group();
-    AllGroups.insert(GroupID,&g1);
+    auto* g1 = new Group(GroupID);
+    AllGroups.insert(GroupID,g1);
 }
 
 void SquidGame::ReplaceGroup(int MainGroup, int SecondaryGroup) {

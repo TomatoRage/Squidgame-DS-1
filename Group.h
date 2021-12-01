@@ -8,10 +8,11 @@ class Group {
 
     int MaxLevelId;
     int MaxLevel;
+    int GroupID;
     BST<Player,int> GroupPlayers;
 
 public:
-    Group();
+    Group(int ID);
     ~Group();
     void AddPlayerToGroup(Player& player);
     void RemovePlayer(Player player);
@@ -20,7 +21,7 @@ public:
     void GincreasePlayerLevel(Player player,int level);
     int GetHighestLevelID() const;
     int GetAllByLevel(int** players);
-
+    int GetGeroupID() const;
     class FailureException{};
     //TODO:Implement Methods
 };
