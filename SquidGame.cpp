@@ -11,12 +11,13 @@ void SquidGame::AddPlayerToGroup(int GroupID,int playerID,int Level) {
         Group* g1 = (AllGroups.Find(GroupID));
         Player* player1 = new Player(playerID, Level, g1);
         PlayersID.insert(playerID,player1);
-        Players.insert(*player1,0);
+        Players.insert(*player1,Level);
         if (AllGroups.Find(GroupID)->GetSize() == 0){
             Group* Temp = new Group(GroupID);
             memcpy(Temp,g1,sizeof(*g1));
             UsedGroups.insert(GroupID,Temp);
         }
+        player1->UpdateUsedGroup(UsedGroups.Find(GroupID));
         AllGroups.Find(GroupID)->AddPlayerToGroup(*player1);
         UsedGroups.Find(GroupID)->AddPlayerToGroup(*player1);
         TotalPlayers++;
@@ -55,13 +56,31 @@ void SquidGame::ReplaceGroup(int MainGroup, int SecondaryGroup) {
     Group* GM = AllGroups.Find(MainGroup);
     Group* GS = AllGroups.Find(SecondaryGroup);
     Group* Temp = GS;
-    GM->MergeGroup(GS);
+    PlayersID.ResetIterator();
+    int k;
+    int* p= &k;
+    Player* player;
+    for (int i = 0; i < PlayersID.GetSize(); i++) {
+        player = PlayersID.NextIteration(&p);
+        if(player->GetAllGroup() == GS){
+            player->UpdateAllGroup(GM);
+        }
+    }
+    GM->MergeGroup(GS,UsedGroups.Find(MainGroup),true);
     AllGroups.remove(SecondaryGroup);
 
     GM = UsedGroups.Find(MainGroup);
     GS = UsedGroups.Find(SecondaryGroup);
-    GM->MergeGroup(GS);
+    PlayersID.ResetIterator();
+    for (int i = 0; i < PlayersID.GetSize(); i++) {
+        player = PlayersID.NextIteration(&p);
+        if(player->GetUsedGroup() == GS){
+            player->UpdateUsedGroup(GM);
+        }
+    }
+    GM->MergeGroup(GS,AllGroups.Find(MainGroup),false);
     UsedGroups.remove(SecondaryGroup);
+
 
     delete GS;
     delete Temp;
@@ -69,9 +88,19 @@ void SquidGame::ReplaceGroup(int MainGroup, int SecondaryGroup) {
 
 void SquidGame::IncreasePlayerLevel(int PlayerID, int Level) {
     Player* p = PlayersID.Find(PlayerID);
-    p->UpdateLevel(Level);
-    p->GetAllGroup()->GincreasePlayerLevel(*p,Level);
-    p->GetUsedGroup()->GincreasePlayerLevel(*p,Level);
+    Player* p1 = new Player();
+    memcpy(p1,p,sizeof(*p));
+    Group* ag = p->GetAllGroup();
+    Group* ug = p->GetUsedGroup();
+    PlayersID.remove(PlayerID);
+    Players.remove(*p);
+    ag->RemovePlayer(*p);
+    ug->RemovePlayer(*p);
+    p1->UpdateLevel(Level);
+    ag->AddPlayerToGroup(*p1);
+    ug->AddPlayerToGroup(*p1);
+    PlayersID.insert(PlayerID,p1);
+    Players.insert(*p1,0);
 }
 
 int SquidGame::GetHighestLevel(int GroupID) {

@@ -22,7 +22,7 @@ void BST<Key,Info>::remove(Key key) {
 }
 
 template<class Key,class Info>
-typename BST<Key,Info>::node*& BST<Key, Info>::InsertNode(Key key,Info& info, node*& NodeToAdd) {
+typename BST<Key,Info>::node*& BST<Key, Info>::InsertNode(Key &key,Info& info, node*& NodeToAdd) {
 
     if(NodeToAdd == nullptr)
     {
@@ -241,6 +241,7 @@ Info& BST<Key,Info>::Find(Key key) {
 template<class Key,class Info>
 void BST<Key,Info>::clear() {
     DeleteNode(root);
+    root = nullptr;
 }
 
 template<class Key,class Info>
@@ -283,10 +284,10 @@ Key &BST<Key, Info>::FindKey(Key key) {
     while(ptr != nullptr){
         if(key > ptr->key)
             ptr = ptr->right_son;
-        else if(key < ptr->key)
-            ptr = ptr->left_son;
         else if(key == ptr->key)
             return ptr->key;
+        else if(key < ptr->key)
+            ptr = ptr->left_son;
     }
 }
 

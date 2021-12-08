@@ -1,7 +1,7 @@
 #include "Group.h"
 #include <iostream>
 
-Player* ArrMerge(Player p1[],Player p2[],int n,int m){
+void ArrMerge(Player** res,Player p1[], Player p2[], int n, int m){
     int newSize = n + m;
     Player* newPlayers = (Player*) malloc(sizeof (Player) * newSize);
     int i, j, k;
@@ -29,7 +29,8 @@ Player* ArrMerge(Player p1[],Player p2[],int n,int m){
     ++k;
     ++j;
     }
-    return newPlayers;
+    *res = newPlayers;
+    return;
 }
 
 Group::Group(int ID):MaxLevelId(-1),MaxLevel(-1),GroupID(ID) {}
@@ -53,32 +54,37 @@ void Group::RemovePlayer(Player player) {
     }
 }
 
-void Group::MergeGroup(Group *ToMerge) {
+void Group::MergeGroup(Group *ToMerge,Group* SecGroup,bool type) {
     Player p1,p2;
     Player* p = &p1,*P = &p2;
     Player* players[GroupPlayers.GetSize()];
     Player* Players2[ToMerge->GroupPlayers.GetSize()];
+    Player** mergedarr = new Player*[GroupPlayers.GetSize()+ToMerge->GroupPlayers.GetSize()];
     GroupPlayers.ResetIterator();
     for(int i = 0; i < GroupPlayers.GetSize();i++){
         this->GroupPlayers.NextIteration(&p);
-        Player* newplayer = new Player();
-        memcpy(newplayer,p,sizeof (*p));
-        players[i] = newplayer;
+        players[i] = p;
     }
     ToMerge->GroupPlayers.ResetIterator();
     for (int i = 0; i < ToMerge->GroupPlayers.GetSize(); i++) {
         ToMerge->GroupPlayers.NextIteration(&P);
-        Player* newplayer2 = new Player();
-        memcpy(newplayer2,P,sizeof (*P));
-        Players2[i] = newplayer2;
+        Players2[i] = P;
     }
 
-   p = ArrMerge(*players,*Players2,GroupPlayers.GetSize(),ToMerge->GroupPlayers.GetSize());
+    ArrMerge(mergedarr,*players,*Players2,GroupPlayers.GetSize(),ToMerge->GroupPlayers.GetSize());
     int GSize = GroupPlayers.GetSize() + ToMerge->GroupPlayers.GetSize();
     GroupPlayers.clear();
 
     for(int i = 0;i < GSize;i++){
-        GroupPlayers.insert(p[i],GSize);
+        if (type){
+            mergedarr[0][i].UpdateAllGroup(this);
+            mergedarr[0][i].UpdateUsedGroup(SecGroup);
+        }
+        else{
+            mergedarr[0][i].UpdateAllGroup(SecGroup);
+            mergedarr[0][i].UpdateUsedGroup(this);
+        }
+        GroupPlayers.insert(mergedarr[0][i],GSize);
     }
 }
 

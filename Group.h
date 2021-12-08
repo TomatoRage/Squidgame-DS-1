@@ -19,7 +19,7 @@ public:
     void AddPlayerToGroup(Player& player);
     void RemovePlayer(Player player);
     int GetSize();
-    void MergeGroup(Group* ToMerge);
+    void MergeGroup(Group* ToMerge ,Group* SecGroup,bool type);
     void GincreasePlayerLevel(Player player,int level);
     int GetHighestLevelID() const;
     int GetAllByLevel(int** players);
@@ -36,7 +36,7 @@ class Player {
 
 public:
 
-    Player(int PlayerId,int Lvl,Group* g) : ID(PlayerId) , Level(Lvl) , AllGroupsptr(g) , UsedGroupsptr(g) {}
+    Player(int PlayerId,int Lvl,Group* g) : ID(PlayerId) , Level(Lvl) , AllGroupsptr(g) , UsedGroupsptr(nullptr) {}
     Player() = default;
     Player(int Id) : ID(Id) , Level(0), AllGroupsptr(NULL) , UsedGroupsptr(NULL) {}
     ~Player() = default;
@@ -72,7 +72,7 @@ public:
     friend bool operator==(const Player& p1, const Player& p2);
 };
 
-Player* ArrMerge(Player p1[],Player p2[],int n,int m);
+void ArrMerge(Player** res,Player p1[], Player p2[], int n, int m);
 
 
 #endif //SQUIDGAMEDS1_GROUP_H

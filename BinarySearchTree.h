@@ -24,7 +24,7 @@ class BST{
     int height(node* Node);
     int max(int x,int y);
 
-    node*& InsertNode(Key key,Info& info, node*& NodeToAdd);
+    node*& InsertNode(Key &key,Info& info, node*& NodeToAdd);
     node* RemoveNode(Key key,node* Tree);
     node* RotateRight(node* &Node);
     node* RotateLeft(node* &Node);

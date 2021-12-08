@@ -7,7 +7,7 @@ bool operator>(const Player& p1, const Player& p2){
     return p1.Level > p2.Level;
 }
 bool operator<(const Player& p1, const Player& p2){
-    return !(p1>p2);
+    return !(p1>p2) && !(p1 == p2);
 }
 
 bool operator==(const Player& p1, const Player& p2){
