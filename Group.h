@@ -72,7 +72,7 @@ public:
     friend bool operator==(const Player& p1, const Player& p2);
 };
 
-void ArrMerge(Player** res,Player p1[], Player p2[], int n, int m);
+Player* ArrMerge(Player p1[], Player p2[], int n, int m);
 
 
 #endif //SQUIDGAMEDS1_GROUP_H

@@ -1,7 +1,7 @@
 #include "Group.h"
 #include <iostream>
 
-void ArrMerge(Player** res,Player p1[], Player p2[], int n, int m){
+Player* ArrMerge(Player p1[], Player p2[], int n, int m){
     int newSize = n + m;
     Player* newPlayers = (Player*) malloc(sizeof (Player) * newSize);
     int i, j, k;
@@ -29,8 +29,7 @@ void ArrMerge(Player** res,Player p1[], Player p2[], int n, int m){
     ++k;
     ++j;
     }
-    *res = newPlayers;
-    return;
+    return newPlayers;
 }
 
 Group::Group(int ID):MaxLevelId(-1),MaxLevel(-1),GroupID(ID) {}
@@ -62,36 +61,35 @@ void Group::RemovePlayer(Player player) {
 void Group::MergeGroup(Group *ToMerge,Group* SecGroup,bool type) {
     Player p1,p2;
     Player* p = &p1,*P = &p2;
-    Player* players[GroupPlayers.GetSize()];
-    Player* Players2[ToMerge->GroupPlayers.GetSize()];
-    Player** mergedarr = new Player*[GroupPlayers.GetSize()+ToMerge->GroupPlayers.GetSize()];
+    Player players[GroupPlayers.GetSize()];
+    Player Players2[ToMerge->GroupPlayers.GetSize()];
+    Player* mergedarr;
     GroupPlayers.ResetIterator();
     for(int i = 0; i < GroupPlayers.GetSize();i++){
         this->GroupPlayers.NextIteration(&p);
-        players[i] = p;
+        players[i] = p1;
     }
     ToMerge->GroupPlayers.ResetIterator();
     for (int i = 0; i < ToMerge->GroupPlayers.GetSize(); i++) {
         ToMerge->GroupPlayers.NextIteration(&P);
-        Players2[i] = P;
+        Players2[i] = p2;
     }
 
-    ArrMerge(mergedarr,*players,*Players2,GroupPlayers.GetSize(),ToMerge->GroupPlayers.GetSize());
+    mergedarr = ArrMerge(players,Players2,GroupPlayers.GetSize(),ToMerge->GroupPlayers.GetSize());
     int GSize = GroupPlayers.GetSize() + ToMerge->GroupPlayers.GetSize();
     GroupPlayers.clear();
 
     for(int i = 0;i < GSize;i++){
         if (type){
-            mergedarr[0][i].UpdateAllGroup(this);
-            mergedarr[0][i].UpdateUsedGroup(SecGroup);
+            mergedarr[i].UpdateAllGroup(this);
+            mergedarr[i].UpdateUsedGroup(SecGroup);
         }
         else{
-            mergedarr[0][i].UpdateAllGroup(SecGroup);
-            mergedarr[0][i].UpdateUsedGroup(this);
+            mergedarr[i].UpdateAllGroup(SecGroup);
+            mergedarr[i].UpdateUsedGroup(this);
         }
-        GroupPlayers.insert(mergedarr[0][i],GSize);
+        GroupPlayers.insert(mergedarr[i],GSize);
     }
-    free(*mergedarr);
     delete[] mergedarr;
 }
 
