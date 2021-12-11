@@ -86,7 +86,7 @@ void Group::MergeGroup(Group *ToMerge,Group* SecGroup,bool type) {
         }
         GroupPlayers.insert(mergedarr[0][i],GSize);
     }
-
+    free(*mergedarr);
     delete[] mergedarr;
 }
 

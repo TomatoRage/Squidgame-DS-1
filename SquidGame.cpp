@@ -161,31 +161,13 @@ void SquidGame::GetGroupsHighestLevel(int NumOfGroups,int** Players) {
     *Players=players;
 }
 
-/*void SquidGame::Clear() {
-  /*  int key;
+void SquidGame::Clear() {
+    int key;
     int* key_ptr = &key;
     PlayersID.ResetIterator();
     for (int i = 0; i < PlayersID.GetSize(); i++) {
         Player* P = PlayersID.NextIteration(&key_ptr);
         delete P;
     }
-    Players.ResetIterator();
-    for (int i = 0; i < Players.GetSize(); i++) {
-        Player p,*P = &p;
-        Players.NextIteration(&P);
-        delete P;
-    }
-    AllGroups.ResetIterator();
-    for (int i = 0; i < AllGroups.GetSize(); i++) {
-        Group* G;
-        G = AllGroups.NextIteration(&key_ptr);
-        delete G;
-    }
-    UsedGroups.ResetIterator();
-    for (int i = 0; i < UsedGroups.GetSize(); i++) {
-        Group* G;
-        G = UsedGroups.NextIteration(&key_ptr);
-        delete G;
-    }
-}*/
+}
 
