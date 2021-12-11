@@ -35,10 +35,12 @@ void SquidGame::RemovePlayerFromGroup(int playerID) {
     AG->RemovePlayer(*p1);
     if(AG->GetSize() == 0){
         UsedGroups.remove(AG->GetGeroupID());
+        delete AG;
     }
     Players.remove(*p1);
     PlayersID.remove(playerID);
     TotalPlayers--;
+    delete p1;
 }
 
 void SquidGame::AddEmptyGroup(int GroupID) {
@@ -101,6 +103,7 @@ void SquidGame::IncreasePlayerLevel(int PlayerID, int Level) {
     ug->AddPlayerToGroup(*p1);
     PlayersID.insert(PlayerID,p1);
     Players.insert(*p1,0);
+    delete p;
 }
 
 int SquidGame::GetHighestLevel(int GroupID) {
@@ -168,6 +171,11 @@ void SquidGame::Clear() {
     for (int i = 0; i < PlayersID.GetSize(); i++) {
         Player* P = PlayersID.NextIteration(&key_ptr);
         delete P;
+    }
+    AllGroups.ResetIterator();
+    for(int i = 0; i < AllGroups.GetSize(); i++){
+        Group* G = AllGroups.NextIteration(&key_ptr);
+        delete G;
     }
 }
 
