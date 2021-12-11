@@ -88,6 +88,10 @@ void Group::MergeGroup(Group *ToMerge,Group* SecGroup,bool type) {
             mergedarr[i].UpdateAllGroup(SecGroup);
             mergedarr[i].UpdateUsedGroup(this);
         }
+        if(mergedarr[i].GetLevel() > MaxLevel || (MaxLevel == mergedarr[i].GetLevel() && mergedarr[i].GetID() < MaxLevelId)){
+            MaxLevel = mergedarr[i].GetLevel();
+            MaxLevelId = mergedarr[i].GetID();
+        }
         GroupPlayers.insert(mergedarr[i],GSize);
     }
     delete[] mergedarr;
@@ -116,7 +120,7 @@ int Group::GetAllByLevel(int **players) {
         throw std::bad_alloc();
 
     GroupPlayers.ResetIterator();
-    for(int i = 0; i < GroupPlayers.GetSize(); i++) {
+    for(int i = GroupPlayers.GetSize()-1; i >= 0; i--) {
         GroupPlayers.NextIteration(&player);
         p[i] = player->GetID();
     }
