@@ -11,8 +11,7 @@ void SquidGame::AddPlayerToGroup(int GroupID,int playerID,int Level) {
         Group* g1 = (AllGroups.Find(GroupID));
         Player* player1 = new Player(playerID, Level, g1);
         PlayersID.insert(playerID,player1);
-        Players.insert(*player1,Level);
-        if (AllGroups.Find(GroupID)->GetSize() == 0){
+        Players.insert(*player1,Level);if (AllGroups.Find(GroupID)->GetSize() == 0){
             Group* Temp = new Group(GroupID);
             memcpy(Temp,g1,sizeof(*g1));
             UsedGroups.insert(GroupID,Temp);
@@ -108,10 +107,12 @@ void SquidGame::IncreasePlayerLevel(int PlayerID, int Level) {
 
 int SquidGame::GetHighestLevel(int GroupID) {
 
-    if(GroupID == -1) {
-        Player* p;
-        Players.GetMax(p);
-        return p->GetID();
+    if(GroupID < 0) {
+        if(Players.GetSize() == 0)
+            return -1;
+        Player p;
+        Players.GetMax(&p);
+        return p.GetID();
     }else{
         Group* G;
         G = AllGroups.Find(GroupID);
@@ -123,15 +124,16 @@ int SquidGame::GetHighestLevel(int GroupID) {
 }
 
 int SquidGame::GetAllPlayersByLevel(int GroupID, int **Players) {
-    if(GroupID == -1){
-        int* players = (int*) malloc(sizeof(int)*TotalPlayers);
+    if(GroupID < 0){
+
+        int *players = (int*) malloc(sizeof(int)*TotalPlayers);
         if(players == nullptr)
             throw std::bad_alloc();
         Player player,*p = &player;
         this->Players.ResetIterator();
-        for (int i = 0; i < TotalPlayers; i++) {
+        for (int i = TotalPlayers-1; i >= 0; i--) {
             this->Players.NextIteration(&p);
-            players[i] = p->GetLevel();
+            players[i] = p->GetID();
         }
         *Players = players;
         return TotalPlayers;
@@ -175,6 +177,11 @@ void SquidGame::Clear() {
     AllGroups.ResetIterator();
     for(int i = 0; i < AllGroups.GetSize(); i++){
         Group* G = AllGroups.NextIteration(&key_ptr);
+        delete G;
+    }
+    UsedGroups.ResetIterator();
+    for(int i = 0; i < UsedGroups.GetSize(); i++){
+        Group* G = UsedGroups.NextIteration(&key_ptr);
         delete G;
     }
 }

@@ -48,9 +48,14 @@ void Group::RemovePlayer(Player player) {
     Player p;
     GroupPlayers.remove(player);
     if(player.GetID() == MaxLevelId) {
-        GroupPlayers.GetMax(&p);
-        MaxLevelId = p.GetID();
-        MaxLevel = p.GetLevel();
+        if(GroupPlayers.GetSize() == 0){
+            MaxLevelId = -1;
+            MaxLevel = -1;
+        }else {
+            GroupPlayers.GetMax(&p);
+            MaxLevelId = p.GetID();
+            MaxLevel = p.GetLevel();
+        }
     }
 }
 
@@ -102,12 +107,12 @@ int Group::GetHighestLevelID() const {
 int Group::GetAllByLevel(int **players) {
 
     if(GroupPlayers.GetSize() == 0) {
-        players = nullptr;
+        *players = nullptr;
         return 0;
     }
 
     int* p = (int*) malloc(sizeof(int)*GroupPlayers.GetSize());
-    Player* player;
+    Player k,*player = &k;
 
     if(p == nullptr)
         throw std::bad_alloc();

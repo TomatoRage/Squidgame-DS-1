@@ -167,7 +167,7 @@ typename BST<Key,Info>::node* BST<Key,Info>::RemoveNode(Key key, node* Tree) {
             }
         }
 
-        if(!temp->father)
+        if(Tree && !temp->father)
             Tree->father = nullptr;
 
         delete temp;
@@ -276,14 +276,18 @@ Info& BST<Key, Info>::NextIteration(Key **key) {
 template<class Key,class Info>
 Info &BST<Key, Info>::GetMax(Key *key) {
     node* ptr = root;
-    while(ptr != nullptr){
+    while(ptr->right_son){
         ptr = ptr->right_son;
     }
+    *key = ptr->key;
+    return ptr->info;
 }
 
 template<class Key,class Info>
 Key &BST<Key, Info>::FindKey(Key key) {
     node* ptr = root;
+    if(root == nullptr)
+        throw FailureException();
     while(ptr != nullptr){
         if(key > ptr->key)
             ptr = ptr->right_son;
@@ -292,6 +296,7 @@ Key &BST<Key, Info>::FindKey(Key key) {
         else if(key < ptr->key)
             ptr = ptr->left_son;
     }
+    return root->key;
 }
 
 #endif //UNTITLED_BINARYSEARCHTREEIMP_H

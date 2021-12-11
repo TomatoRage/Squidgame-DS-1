@@ -1,8 +1,6 @@
 #ifndef UNTITLED_BINARYSEARCHTREE_H
 #define UNTITLED_BINARYSEARCHTREE_H
 
-using namespace std;
-
 template<class Key,class Info>
 class BST{
 
