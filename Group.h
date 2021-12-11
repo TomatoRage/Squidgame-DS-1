@@ -25,7 +25,7 @@ public:
     int GetAllByLevel(int** players);
     int GetGeroupID() const;
     class FailureException{};
-    //TODO:Implement Methods
+
 };
 class Player {
 

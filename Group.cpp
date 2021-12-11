@@ -86,6 +86,8 @@ void Group::MergeGroup(Group *ToMerge,Group* SecGroup,bool type) {
         }
         GroupPlayers.insert(mergedarr[0][i],GSize);
     }
+
+    delete[] mergedarr;
 }
 
 void Group::GincreasePlayerLevel(Player player, int level) {
