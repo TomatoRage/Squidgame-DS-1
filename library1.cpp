@@ -122,7 +122,6 @@ StatusType GetGroupsHighestLevel(void *DS, int numOfGroups, int **Players){
 void Quit(void** DS){
     if(!DS)
         return;
-    (*((SquidGame**)DS))->Clear();
     delete *(SquidGame**)DS;
     *DS = nullptr;
 }

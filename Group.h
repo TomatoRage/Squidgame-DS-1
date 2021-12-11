@@ -37,8 +37,8 @@ class Player {
 public:
 
     Player(int PlayerId,int Lvl,Group* g) : ID(PlayerId) , Level(Lvl) , AllGroupsptr(g) , UsedGroupsptr(nullptr) {}
-    Player() = default;
-    Player(int Id) : ID(Id) , Level(0), AllGroupsptr(NULL) , UsedGroupsptr(NULL) {}
+    Player():ID(0),Level(0),AllGroupsptr(nullptr),UsedGroupsptr(nullptr){}
+    Player(int Id) : ID(Id) , Level(0), AllGroupsptr(nullptr) , UsedGroupsptr(nullptr) {}
     ~Player() = default;
     void UpdateAllGroup(Group* Group){
         AllGroupsptr = Group;

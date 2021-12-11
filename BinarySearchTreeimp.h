@@ -167,6 +167,9 @@ typename BST<Key,Info>::node* BST<Key,Info>::RemoveNode(Key key, node* Tree) {
             }
         }
 
+        if(!temp->father)
+            Tree->father = nullptr;
+
         delete temp;
         Size--;
     }

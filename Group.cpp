@@ -38,7 +38,7 @@ Group::Group(int ID):MaxLevelId(-1),MaxLevel(-1),GroupID(ID) {}
 void Group::AddPlayerToGroup(Player& player) {
     int zero = 0;
     GroupPlayers.insert(player,zero);
-    if(player.GetLevel() > MaxLevel || MaxLevel == player.GetLevel() && player.GetID() < MaxLevelId){
+    if(player.GetLevel() > MaxLevel || (MaxLevel == player.GetLevel() && player.GetID() < MaxLevelId)){
         MaxLevel = player.GetLevel();
         MaxLevelId = player.GetID();
     }

@@ -31,7 +31,7 @@ void SquidGame::RemovePlayerFromGroup(int playerID) {
     Player* p1 = PlayersID.Find(playerID);
     Group* g1 = p1->GetAllGroup();
     g1->RemovePlayer(*p1);
-    Group* AG = (PlayersID.Find(playerID)->GetAllGroup());
+    Group* AG = (PlayersID.Find(playerID)->GetUsedGroup());
     AG->RemovePlayer(*p1);
     if(AG->GetSize() == 0){
         UsedGroups.remove(AG->GetGeroupID());
@@ -124,12 +124,13 @@ int SquidGame::GetAllPlayersByLevel(int GroupID, int **Players) {
         int* players = (int*) malloc(sizeof(int)*TotalPlayers);
         if(players == nullptr)
             throw std::bad_alloc();
-        Player* p;
+        Player player,*p = &player;
         this->Players.ResetIterator();
         for (int i = 0; i < TotalPlayers; i++) {
             this->Players.NextIteration(&p);
             players[i] = p->GetLevel();
         }
+        *Players = players;
         return TotalPlayers;
     }else {
         Group* G = AllGroups.Find(GroupID);
@@ -160,8 +161,8 @@ void SquidGame::GetGroupsHighestLevel(int NumOfGroups,int** Players) {
     *Players=players;
 }
 
-void SquidGame::Clear() {
-    int key;
+/*void SquidGame::Clear() {
+  /*  int key;
     int* key_ptr = &key;
     PlayersID.ResetIterator();
     for (int i = 0; i < PlayersID.GetSize(); i++) {
@@ -170,7 +171,7 @@ void SquidGame::Clear() {
     }
     Players.ResetIterator();
     for (int i = 0; i < Players.GetSize(); i++) {
-        Player* P;
+        Player p,*P = &p;
         Players.NextIteration(&P);
         delete P;
     }
@@ -186,4 +187,5 @@ void SquidGame::Clear() {
         G = UsedGroups.NextIteration(&key_ptr);
         delete G;
     }
-}
+}*/
+
