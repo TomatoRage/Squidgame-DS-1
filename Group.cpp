@@ -136,3 +136,7 @@ int Group::GetSize() {
 int Group::GetGeroupID() const {
     return GroupID;
 }
+
+void Group::SetGroupID(int ID) {
+    this->GroupID = ID;
+}

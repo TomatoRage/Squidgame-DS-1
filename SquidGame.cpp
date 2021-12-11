@@ -67,11 +67,33 @@ void SquidGame::ReplaceGroup(int MainGroup, int SecondaryGroup) {
             player->UpdateAllGroup(GM);
         }
     }
-    GM->MergeGroup(GS,UsedGroups.Find(MainGroup),true);
+
+    Group* temp;
+    if(GS->GetSize() == 0 && GM->GetSize() == 0)
+        temp = nullptr;
+    else if(GM->GetSize() == 0)
+        temp = UsedGroups.Find(SecondaryGroup);
+    else
+        temp = UsedGroups.Find(MainGroup);
+
+    GM->MergeGroup(GS,temp,true);
     AllGroups.remove(SecondaryGroup);
 
-    GM = UsedGroups.Find(MainGroup);
-    GS = UsedGroups.Find(SecondaryGroup);
+    try {
+        GS = UsedGroups.Find(SecondaryGroup);
+    }catch (...){
+        delete Temp;
+        return;
+    }
+    try {
+        GM = UsedGroups.Find(MainGroup);
+    }catch(...){
+        UsedGroups.remove(GS->GetGeroupID());
+        GS->SetGroupID(MainGroup);
+        UsedGroups.insert(MainGroup,GS);
+        delete Temp;
+        return;
+    }
     PlayersID.ResetIterator();
     for (int i = 0; i < PlayersID.GetSize(); i++) {
         player = PlayersID.NextIteration(&p);

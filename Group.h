@@ -24,6 +24,7 @@ public:
     int GetHighestLevelID() const;
     int GetAllByLevel(int** players);
     int GetGeroupID() const;
+    void SetGroupID(int ID);
     class FailureException{};
 
 };
