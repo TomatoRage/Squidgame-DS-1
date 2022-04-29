@@ -17,11 +17,17 @@ class SquidGame {
 public:
     SquidGame();
     ~SquidGame() = default;
-    void AddPlayerToGroup(int GroupID,int playerID,int Level);
+    void AddPlayerToGroup(int GroupID,int playerID,int Salary,int Level);
     void RemovePlayerFromGroup(int PlayerID);
-    void AddEmptyGroup(int GroupID);
-    void ReplaceGroup(int MainGroup,int SecondaryGroup);
-    void IncreasePlayerLevel(int PlayerID,int Level);
+    void AddEmptyGroup(int GroupID,int Value);
+    void RemoveGroup(int GroupID);
+    void GetGroupInfo(int GroupID,int* Value,int* NumOfEmployees);
+    void GetPlayerInfo(int PlayerID,int* CompanyID,int* Salary,int* Grade);
+    void IncreaseCompanyValue(int CompanyID,int Value);
+    void ReplaceGroup(int MainGroup,int SecondaryGroup,double Factor);
+    void IncreasePlayerLevel(int PlayerID,int Salary,int Level);
+    void TransferPlayer(int PlayerID,int NewGroupID);
+    void GetMatchingPlayers(int CompanyID,int MinEmployeeID,int MaxEmployeeID,int MinSalary,int MinGrade,int* TotalNumOfEmployees,int* NumOfEmployees);
     int GetHighestLevel(int GroupID);
     int GetAllPlayersByLevel(int GroupID,int** Players);
     void GetGroupsHighestLevel(int NumOfGroups,int** Players);

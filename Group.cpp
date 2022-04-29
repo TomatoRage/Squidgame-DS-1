@@ -32,7 +32,7 @@ Player* ArrMerge(Player p1[], Player p2[], int n, int m){
     return newPlayers;
 }
 
-Group::Group(int ID):MaxLevelId(-1),MaxLevel(-1),GroupID(ID) {}
+Group::Group(int ID,int Value):MaxLevelId(-1),MaxLevel(-1),GroupID(ID),Value(Value) {}
 
 void Group::AddPlayerToGroup(Player& player) {
     int zero = 0;
@@ -58,7 +58,7 @@ void Group::RemovePlayer(Player player) {
     }
 }
 
-void Group::MergeGroup(Group *ToMerge,Group* SecGroup,bool type) {
+void Group::MergeGroup(Group *ToMerge,Group* SecGroup,bool type,double Factor) {
     Player p1,p2;
     Player* p = &p1,*P = &p2;
     Player players[GroupPlayers.GetSize()];
@@ -78,6 +78,8 @@ void Group::MergeGroup(Group *ToMerge,Group* SecGroup,bool type) {
     mergedarr = ArrMerge(players,Players2,GroupPlayers.GetSize(),ToMerge->GroupPlayers.GetSize());
     int GSize = GroupPlayers.GetSize() + ToMerge->GroupPlayers.GetSize();
     GroupPlayers.clear();
+
+    this->SetValue(double((ToMerge->GetValue() + this->GetValue())) * Factor);
 
     for(int i = 0;i < GSize;i++){
         if (type){
@@ -129,6 +131,24 @@ int Group::GetAllByLevel(int **players) {
 
 }
 
+void Group::GetMatchingPlayers(int MinID,int MaxID,int MinSalary,int MinGrade,int* TotalEmployees,int* NumOfEmployees){
+    int Employees = 0,SubEmployees = 0;
+    Player k,*player = &k;
+    GroupPlayers.ResetIterator();
+    for(int i = 0; i < GroupPlayers.GetSize(); i++){
+        GroupPlayers.NextIteration(&player);
+        if(player->GetID() > MaxID)
+            continue;
+        else if(player->GetID() > MinID){
+            Employees++;
+            if(player->GetSalary() >= MinSalary && player->GetGrade() >= MinGrade)
+                SubEmployees++;
+        }
+    }
+    *TotalEmployees = Employees;
+    *NumOfEmployees = SubEmployees;
+}
+
 int Group::GetSize() {
     return GroupPlayers.GetSize();
 }
@@ -139,4 +159,16 @@ int Group::GetGeroupID() const {
 
 void Group::SetGroupID(int ID) {
     this->GroupID = ID;
+}
+
+void Group::IncreaseValue(int newValue) {
+    Value += newValue;
+}
+
+void Group::SetValue(int newValue) {
+    Value = newValue;
+}
+
+int Group::GetValue() const {
+    return Value;
 }

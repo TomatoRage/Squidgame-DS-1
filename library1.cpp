@@ -13,11 +13,11 @@ void *Init(){
 
 }
 
-StatusType AddGroup(void *DS, int GroupID){
-    if(!DS || GroupID <= 0)
+StatusType AddCompany(void *DS, int GroupID,int Value){
+    if(!DS || GroupID <= 0 || Value <= 0)
         return INVALID_INPUT;
     try{
-        ((SquidGame*)DS)->AddEmptyGroup(GroupID);
+        ((SquidGame*)DS)->AddEmptyGroup(GroupID,Value);
     }catch(std::bad_alloc& e){
         return ALLOCATION_ERROR;
     }catch(...){
@@ -26,11 +26,11 @@ StatusType AddGroup(void *DS, int GroupID){
     return SUCCESS;
 }
 
-StatusType AddPlayer(void *DS, int PlayerID, int GroupID, int Level){
-    if(!DS || GroupID <= 0 || Level < 0 || PlayerID <= 0)
+StatusType AddEmployee(void *DS, int PlayerID, int GroupID, int Salary,int Level){
+    if(!DS || GroupID <= 0 || Level < 0 || PlayerID <= 0 || Salary <= 0)
         return INVALID_INPUT;
     try{
-        ((SquidGame*)DS)->AddPlayerToGroup(GroupID,PlayerID,Level);
+        ((SquidGame*)DS)->AddPlayerToGroup(GroupID,PlayerID,Salary,Level);
     }catch(std::bad_alloc& e){
         return ALLOCATION_ERROR;
     }catch(...){
@@ -39,7 +39,7 @@ StatusType AddPlayer(void *DS, int PlayerID, int GroupID, int Level){
     return SUCCESS;
 }
 
-StatusType RemovePlayer(void *DS, int PlayerID){
+StatusType RemoveEmployee(void *DS, int PlayerID){
     if(!DS || PlayerID <= 0)
         return INVALID_INPUT;
     try{
@@ -52,11 +52,11 @@ StatusType RemovePlayer(void *DS, int PlayerID){
     return SUCCESS;
 }
 
-StatusType ReplaceGroup(void *DS, int GroupID, int ReplacementID){
-    if(!DS || GroupID <= 0 ||  ReplacementID <= 0 || GroupID == ReplacementID)
+StatusType RemoveCompany(void *DS, int CompanyID){
+    if(!DS || CompanyID <= 0)
         return INVALID_INPUT;
     try{
-        ((SquidGame*)DS)->ReplaceGroup(ReplacementID,GroupID);
+        ((SquidGame*)DS)->RemoveGroup(CompanyID);
     }catch(std::bad_alloc& e){
         return ALLOCATION_ERROR;
     }catch(...){
@@ -65,11 +65,12 @@ StatusType ReplaceGroup(void *DS, int GroupID, int ReplacementID){
     return SUCCESS;
 }
 
-StatusType IncreaseLevel(void *DS, int PlayerID, int LevelIncrease){
-    if(!DS || LevelIncrease <= 0 || PlayerID <= 0)
+StatusType GetCompanyInfo(void *DS, int CompanyID, int *Value, int *NumEmployees){
+
+    if(!DS || CompanyID <= 0 || !Value || !NumEmployees)
         return INVALID_INPUT;
     try{
-        ((SquidGame*)DS)->IncreasePlayerLevel(PlayerID, LevelIncrease);
+        ((SquidGame*)DS)->GetGroupInfo(CompanyID,Value,NumEmployees);
     }catch(std::bad_alloc& e){
         return ALLOCATION_ERROR;
     }catch(...){
@@ -78,11 +79,11 @@ StatusType IncreaseLevel(void *DS, int PlayerID, int LevelIncrease){
     return SUCCESS;
 }
 
-StatusType GetHighestLevel(void *DS, int GroupID, int *PlayerID){
-    if(!DS || GroupID == 0 || !PlayerID)
+StatusType GetEmployeeInfo(void *DS, int EmployeeID, int *EmployerID, int *Salary, int *Grade){
+    if(!DS || EmployeeID <= 0 || !EmployerID || !Salary || !Grade)
         return INVALID_INPUT;
     try{
-       *PlayerID = ((SquidGame*)DS)->GetHighestLevel(GroupID);
+        ((SquidGame*)DS)->GetPlayerInfo(EmployeeID,EmployerID,Salary,Grade);
     }catch(std::bad_alloc& e){
         return ALLOCATION_ERROR;
     }catch(...){
@@ -91,11 +92,11 @@ StatusType GetHighestLevel(void *DS, int GroupID, int *PlayerID){
     return SUCCESS;
 }
 
-StatusType GetAllPlayersByLevel(void *DS, int GroupID, int **Players, int *numOfPlayers){
-    if(!DS || GroupID == 0 || !Players || !numOfPlayers)
+StatusType IncreaseCompanyValue(void *DS, int CompanyID, int ValueIncrease){
+    if(!DS || CompanyID <= 0 || ValueIncrease <= 0)
         return INVALID_INPUT;
     try{
-        *numOfPlayers = ((SquidGame*)DS)->GetAllPlayersByLevel(GroupID,Players);
+        ((SquidGame*)DS)->IncreaseCompanyValue(CompanyID,ValueIncrease);
     }catch(std::bad_alloc& e){
         return ALLOCATION_ERROR;
     }catch(...){
@@ -104,12 +105,25 @@ StatusType GetAllPlayersByLevel(void *DS, int GroupID, int **Players, int *numOf
     return SUCCESS;
 }
 
-StatusType GetGroupsHighestLevel(void *DS, int numOfGroups, int **Players){
-
-    if(!DS || numOfGroups < 1 || !Players)
+StatusType PromoteEmployee(void *DS, int EmployeeID, int SalaryIncrease, int BumpGrade){
+    if(!DS || SalaryIncrease <= 0 || EmployeeID <= 0)
         return INVALID_INPUT;
     try{
-        ((SquidGame*)DS)->GetGroupsHighestLevel(numOfGroups,Players);
+        ((SquidGame*)DS)->IncreasePlayerLevel(EmployeeID, SalaryIncrease,BumpGrade);
+    }catch(std::bad_alloc& e){
+        return ALLOCATION_ERROR;
+    }catch(...){
+        return FAILURE;
+    }
+    return SUCCESS;
+}
+
+StatusType HireEmployee(void *DS, int EmployeeID, int NewCompanyID){
+
+    if(!DS || NewCompanyID <= 0 || EmployeeID <= 0)
+        return INVALID_INPUT;
+    try{
+        ((SquidGame*)DS)->TransferPlayer(EmployeeID,NewCompanyID);
     }catch(std::bad_alloc& e){
         return ALLOCATION_ERROR;
     }catch(...){
@@ -117,6 +131,76 @@ StatusType GetGroupsHighestLevel(void *DS, int numOfGroups, int **Players){
     }
     return SUCCESS;
 
+}
+
+StatusType AcquireCompany(void *DS, int AcquirerID, int TargetID, double Factor){
+    if(!DS || AcquirerID <= 0 ||  TargetID <= 0 || TargetID == AcquirerID || Factor < 1)
+        return INVALID_INPUT;
+    try{
+        ((SquidGame*)DS)->ReplaceGroup(AcquirerID,TargetID,Factor);
+    }catch(std::bad_alloc& e){
+        return ALLOCATION_ERROR;
+    }catch(...){
+        return FAILURE;
+    }
+    return SUCCESS;
+}
+
+StatusType GetHighestEarner(void *DS, int CompanyID, int *EmployeeID){
+    if(!DS || CompanyID == 0 || !EmployeeID)
+        return INVALID_INPUT;
+    try{
+       *EmployeeID = ((SquidGame*)DS)->GetHighestLevel(CompanyID);
+    }catch(std::bad_alloc& e){
+        return ALLOCATION_ERROR;
+    }catch(...){
+        return FAILURE;
+    }
+    return SUCCESS;
+}
+
+StatusType GetAllEmployeesBySalary(void *DS, int CompanyID, int **Employees, int *NumOfEmployees){
+    if(!DS || CompanyID == 0 || !Employees || !NumOfEmployees)
+        return INVALID_INPUT;
+    try{
+        *NumOfEmployees = ((SquidGame*)DS)->GetAllPlayersByLevel(CompanyID,Employees);
+    }catch(std::bad_alloc& e){
+        return ALLOCATION_ERROR;
+    }catch(...){
+        return FAILURE;
+    }
+    return SUCCESS;
+}
+
+StatusType GetHighestEarnerInEachCompany(void *DS, int NumOfCompanies, int **Employees){
+
+    if(!DS || NumOfCompanies < 1 || !Employees)
+        return INVALID_INPUT;
+    try{
+        ((SquidGame*)DS)->GetGroupsHighestLevel(NumOfCompanies,Employees);
+    }catch(std::bad_alloc& e){
+        return ALLOCATION_ERROR;
+    }catch(...){
+        return FAILURE;
+    }
+    return SUCCESS;
+
+}
+
+StatusType GetNumEmployeesMatching(void *DS, int CompanyID, int MinEmployeeID, int MaxEmployeeId,
+                                   int MinSalary, int MinGrade, int *TotalNumOfEmployees, int *NumOfEmployees){
+    if(!DS || !TotalNumOfEmployees || !NumOfEmployees || CompanyID == 0 || MinEmployeeID < 0 || MaxEmployeeId < 0 ||
+        MinSalary < 0 || MinGrade < 0 || MinEmployeeID > MaxEmployeeId)
+        return INVALID_INPUT;
+    try{
+        ((SquidGame*)DS)->GetMatchingPlayers(CompanyID,MinEmployeeID,MaxEmployeeId,
+                                             MinSalary,MinGrade,TotalNumOfEmployees,NumOfEmployees);
+    }catch(std::bad_alloc& e){
+        return ALLOCATION_ERROR;
+    }catch(...){
+        return FAILURE;
+    }
+    return SUCCESS;
 }
 
 void Quit(void** DS){
