@@ -105,14 +105,15 @@ void Group::GincreasePlayerLevel(Player player, int level) {
 }
 
 int Group::GetHighestLevelID() const {
+    if(MaxLevelId == -1)
+        throw FailureException();
     return MaxLevelId;
 }
 
 int Group::GetAllByLevel(int **players) {
 
     if(GroupPlayers.GetSize() == 0) {
-        *players = nullptr;
-        return 0;
+        throw FailureException();
     }
 
     int* p = (int*) malloc(sizeof(int)*GroupPlayers.GetSize());
@@ -139,7 +140,7 @@ void Group::GetMatchingPlayers(int MinID,int MaxID,int MinSalary,int MinGrade,in
         GroupPlayers.NextIteration(&player);
         if(player->GetID() > MaxID)
             continue;
-        else if(player->GetID() > MinID){
+        else if(player->GetID() >= MinID){
             Employees++;
             if(player->GetSalary() >= MinSalary && player->GetGrade() >= MinGrade)
                 SubEmployees++;

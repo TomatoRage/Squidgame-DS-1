@@ -84,9 +84,11 @@ void SquidGame::IncreaseCompanyValue(int CompanyID,int Value){
 void SquidGame::TransferPlayer(int PlayerID,int NewGroupID){
     Player* P = PlayersID.Find(PlayerID);
     Group* NewGroup = AllGroups.Find(NewGroupID);
+    if(NewGroupID == P->GetAllGroup()->GetGeroupID())
+        throw FailureException();
     Players.remove(*P);
-    P->GetAllGroup()->RemovePlayer(PlayerID);
-    P->GetUsedGroup()->RemovePlayer(PlayerID);
+    P->GetAllGroup()->RemovePlayer(*P);
+    P->GetUsedGroup()->RemovePlayer(*P);
     if(P->GetAllGroup()->GetSize() == 0) {
         UsedGroups.remove(P->GetUsedGroup()->GetGeroupID());
         P->UpdateUsedGroup(nullptr);
@@ -142,8 +144,7 @@ void SquidGame::IncreasePlayerLevel(int PlayerID, int Salary,int Level) {
     ag->AddPlayerToGroup(*p1);
     ug->AddPlayerToGroup(*p1);
     PlayersID.insert(PlayerID,p1);
-    Players.insert(*p1,Salary);
-    ///Players.insert(*p1,0);
+    Players.insert(*p1,0);
     delete p;
 }
 
@@ -211,12 +212,14 @@ int SquidGame::GetHighestLevel(int GroupID) {
             return -1;
         Player p;
         Players.GetMax(&p);
+        if(p.GetID() == -1)
+            throw FailureException();
         return p.GetID();
     }else{
         Group* G;
         G = AllGroups.Find(GroupID);
         if(G->GetSize() == 0)
-            return -1;
+            throw FailureException();
         return G->GetHighestLevelID();
     }
 
@@ -230,6 +233,8 @@ int SquidGame::GetAllPlayersByLevel(int GroupID, int **Players) {
             throw std::bad_alloc();
         Player player,*p = &player;
         this->Players.ResetIterator();
+        if(TotalPlayers == 0)
+            throw FailureException();
         for (int i = TotalPlayers-1; i >= 0; i--) {
             this->Players.NextIteration(&p);
             players[i] = p->GetID();
@@ -276,8 +281,8 @@ void SquidGame::GetMatchingPlayers(int CompanyID,int MinEmployeeID,int MaxEmploy
         for(int i = 0; i < PlayersID.GetSize(); i++){
             player = PlayersID.NextIteration(&p);
             if(player->GetID() > MaxEmployeeID)
-                break;
-            else if(player->GetID() > MinEmployeeID){
+                continue;
+            else if(player->GetID() >= MinEmployeeID){
                 Employees++;
                 if(player->GetSalary() >= MinSalary && player->GetGrade() >= MinGrade)
                     SubEmployees++;
