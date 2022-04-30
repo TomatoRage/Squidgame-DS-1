@@ -1,5 +1,5 @@
 #include "SquidGame.h"
-
+#include "iostream"
 
 SquidGame::SquidGame():TotalPlayers(0) {}
 
@@ -80,28 +80,48 @@ void SquidGame::IncreaseCompanyValue(int CompanyID,int Value){
     G->IncreaseValue(Value);
 }
 
+
 void SquidGame::TransferPlayer(int PlayerID,int NewGroupID){
     Player* P = PlayersID.Find(PlayerID);
     Group* NewGroup = AllGroups.Find(NewGroupID);
     Players.remove(*P);
     P->GetAllGroup()->RemovePlayer(PlayerID);
     P->GetUsedGroup()->RemovePlayer(PlayerID);
-    if(P->GetAllGroup()->GetSize() == 0)
+    if(P->GetAllGroup()->GetSize() == 0) {
         UsedGroups.remove(P->GetUsedGroup()->GetGeroupID());
+        P->UpdateUsedGroup(nullptr);
+    }
     if(NewGroup->GetSize() == 0){
-        NewGroup->AddPlayerToGroup(*P);
         Group* UG = new Group(NewGroupID,NewGroup->GetValue());
         P->UpdateAllGroup(NewGroup);
         P->UpdateUsedGroup(UG);
         memcpy(UG,NewGroup,sizeof(*NewGroup));
         UsedGroups.insert(NewGroupID,UG);
-        UG->AddPlayerToGroup(*P);
-    }else{
-        P->UpdateAllGroup(NewGroup);
-        P->UpdateUsedGroup(UsedGroups.Find(NewGroupID));
-        NewGroup->AddPlayerToGroup(*P);
-        UsedGroups.Find(NewGroupID)->AddPlayerToGroup(*P);
     }
+    NewGroup->AddPlayerToGroup(*P);
+    UsedGroups.Find(NewGroupID)->AddPlayerToGroup(*P);
+    P->UpdateAllGroup(NewGroup);
+    P->UpdateUsedGroup(UsedGroups.Find(NewGroupID));
+    Players.insert(*P,P->GetSalary());
+    /*
+         AllGroups.Find(GroupID);
+    try {
+        PlayersID.Find(playerID);
+    }catch (...){
+        Group* g1 = (AllGroups.Find(GroupID));
+        auto* player1 = new Player(playerID, Salary,Level, g1);
+        PlayersID.insert(playerID,player1);
+        Players.insert(*player1,Salary);
+        if (AllGroups.Find(GroupID)->GetSize() == 0){
+            Group* Temp = new Group(GroupID,g1->GetValue());
+            memcpy(Temp,g1,sizeof(*g1));
+            UsedGroups.insert(GroupID,Temp);
+        }
+        player1->UpdateUsedGroup(UsedGroups.Find(GroupID));
+        AllGroups.Find(GroupID)->AddPlayerToGroup(*player1);
+        UsedGroups.Find(GroupID)->AddPlayerToGroup(*player1);
+        TotalPlayers++;
+     */
 }
 
 void SquidGame::IncreasePlayerLevel(int PlayerID, int Salary,int Level) {
@@ -179,7 +199,6 @@ void SquidGame::ReplaceGroup(int MainGroup, int SecondaryGroup,double Factor) {
     }
     GM->MergeGroup(GS,AllGroups.Find(MainGroup),false,Factor);
     UsedGroups.remove(SecondaryGroup);
-
 
     delete GS;
     delete Temp;
