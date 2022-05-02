@@ -60,6 +60,7 @@ void SquidGame::RemoveGroup(int GroupID) {
         throw FailureException();
     }
     AllGroups.remove(GroupID);
+    delete G;
 }
 
 void SquidGame::GetGroupInfo(int GroupID,int* Value,int* NumOfEmployees){
@@ -88,8 +89,10 @@ void SquidGame::TransferPlayer(int PlayerID,int NewGroupID){
     P->GetAllGroup()->RemovePlayer(PlayerID);
     P->GetUsedGroup()->RemovePlayer(PlayerID);
     if(P->GetAllGroup()->GetSize() == 0) {
+        Group* UG = UsedGroups.Find(P->GetUsedGroup()->GetGeroupID());
         UsedGroups.remove(P->GetUsedGroup()->GetGeroupID());
         P->UpdateUsedGroup(nullptr);
+        delete UG;
     }
     if(NewGroup->GetSize() == 0){
         Group* UG = new Group(NewGroupID,NewGroup->GetValue());
@@ -103,25 +106,7 @@ void SquidGame::TransferPlayer(int PlayerID,int NewGroupID){
     P->UpdateAllGroup(NewGroup);
     P->UpdateUsedGroup(UsedGroups.Find(NewGroupID));
     Players.insert(*P,P->GetSalary());
-    /*
-         AllGroups.Find(GroupID);
-    try {
-        PlayersID.Find(playerID);
-    }catch (...){
-        Group* g1 = (AllGroups.Find(GroupID));
-        auto* player1 = new Player(playerID, Salary,Level, g1);
-        PlayersID.insert(playerID,player1);
-        Players.insert(*player1,Salary);
-        if (AllGroups.Find(GroupID)->GetSize() == 0){
-            Group* Temp = new Group(GroupID,g1->GetValue());
-            memcpy(Temp,g1,sizeof(*g1));
-            UsedGroups.insert(GroupID,Temp);
-        }
-        player1->UpdateUsedGroup(UsedGroups.Find(GroupID));
-        AllGroups.Find(GroupID)->AddPlayerToGroup(*player1);
-        UsedGroups.Find(GroupID)->AddPlayerToGroup(*player1);
-        TotalPlayers++;
-     */
+
 }
 
 void SquidGame::IncreasePlayerLevel(int PlayerID, int Salary,int Level) {
@@ -172,7 +157,8 @@ void SquidGame::ReplaceGroup(int MainGroup, int SecondaryGroup,double Factor) {
     else
         temp = UsedGroups.Find(MainGroup);
 
-    GM->MergeGroup(GS,temp,true,Factor);
+    if(GS->GetSize() != 0)
+        GM->MergeGroup(GS,temp,true,Factor);
     AllGroups.remove(SecondaryGroup);
 
     try {
