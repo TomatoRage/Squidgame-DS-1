@@ -158,8 +158,7 @@ void SquidGame::ReplaceGroup(int MainGroup, int SecondaryGroup,double Factor) {
     else
         temp = UsedGroups.Find(MainGroup);
 
-    if(GS->GetSize() != 0)
-        GM->MergeGroup(GS,temp,true,Factor);
+    GM->MergeGroup(GS,temp,true,Factor);
     AllGroups.remove(SecondaryGroup);
 
     try {
