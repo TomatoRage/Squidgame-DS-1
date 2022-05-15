@@ -194,7 +194,7 @@ int SquidGame::GetHighestLevel(int GroupID) {
 
     if(GroupID < 0) {
         if(Players.GetSize() == 0)
-            return -1;
+            throw FailureException();
         Player p;
         Players.GetMax(&p);
         if(p.GetID() == -1)
@@ -263,6 +263,8 @@ void SquidGame::GetMatchingPlayers(int CompanyID,int MinEmployeeID,int MaxEmploy
         int k,*p = &k;
         Player* player;
         PlayersID.ResetIterator();
+        if(PlayersID.GetSize() == 0)
+            throw FailureException();
         for(int i = 0; i < PlayersID.GetSize(); i++){
             player = PlayersID.NextIteration(&p);
             if(player->GetID() > MaxEmployeeID)
